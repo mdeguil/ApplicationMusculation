@@ -9,14 +9,9 @@ public class Exercice {
 	private String detail;
 	private int poid;
 	
-	public Exercice(int idExercice, String nom, String muscleSolicite, int nombreSerie, int nombreRepetition, String detail, int poid) {
-		this.idExercice = idExercice;
+	public Exercice(String nom, String muscleSolicite) {
 		this.nom = nom;
 		this.MuscleSolicite = muscleSolicite;
-		this.nombreSerie = nombreSerie;
-		this.nombreRepetition = nombreRepetition;
-		this.detail = detail;
-		this.poid = poid;
 	}
 
 	public int getIdExercice() {
