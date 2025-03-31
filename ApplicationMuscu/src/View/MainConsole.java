@@ -1,6 +1,7 @@
 package View;
 
 import java.util.Scanner;
+import Model.*;
 
 public class MainConsole {
 
@@ -16,6 +17,17 @@ public class MainConsole {
 				case 1 : 
 					// Crée un exercice
 					System.out.println("Bienvenue dans la création d'un exercice !");
+					String nomExercice;
+					String muscleSolicite;
+					String detailExercice;
+					Scanner scan = new Scanner(System.in);
+					System.out.println("Entrer le nom de l'exercice : ");
+					nomExercice = scan.nextLine();
+					System.out.println("Entrer le muscle solicite lors de cette l'exercice : ");
+					muscleSolicite = scan.nextLine();
+					System.out.println("Entrer les detail de l'exercice : ");
+					detailExercice = scan.nextLine();					
+					Exercice exercice = new Exercice(nomExercice, muscleSolicite, detailExercice);
 					break;
 				case 2 : 
 					// modifier un exercice
@@ -127,7 +139,8 @@ public class MainConsole {
 		System.out.println("	4 - Quittez.");
 		System.out.println("Entrez votre choix : ");
 		choix = scan.nextInt();
-
+		scan.nextLine();
+		choix = verificationNombre(choix,1,4);
 		return choix;
 	}
 	
@@ -146,6 +159,7 @@ public class MainConsole {
 		System.out.println("	5 - Quittez.");
 		System.out.println("Entrez votre choix : ");
 		choix = scan.nextInt();
+		scan.nextLine();
 		choix = verificationNombre(choix,1,5);
 		return choix;
 	}
@@ -165,6 +179,7 @@ public class MainConsole {
 		System.out.println("	5 - Quittez.");
 		System.out.println("Entrez votre choix : ");
 		choix = scan.nextInt();
+		scan.nextLine();
 		choix = verificationNombre(choix,1,5);
 		return choix;
 	}
@@ -184,6 +199,7 @@ public class MainConsole {
 		System.out.println("	5 - Quittez.");
 		System.out.println("Entrez votre choix : ");
 		choix = scan.nextInt();
+		scan.nextLine();
 		choix = verificationNombre(choix,1,5);
 		return choix;
 	}
@@ -201,6 +217,7 @@ public class MainConsole {
 			System.out.println("Erreur !! Nombre incorrect !");
 			System.out.println("Entrez un nouveau nombre : ");
 			nbr = scan.nextInt();
+			scan.nextLine();
 		}
 		
 		return nbr;
