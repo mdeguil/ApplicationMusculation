@@ -1,4 +1,4 @@
-package View;
+package Vue;
 
 import java.util.Scanner;
 import Model.*;
