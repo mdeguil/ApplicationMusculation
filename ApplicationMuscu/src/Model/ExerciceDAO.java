@@ -4,13 +4,13 @@ package Model;
 public class ExerciceDAO {
 	public void create(Exercice exercice) {
 		ConnexionBDD connexionBDD = new ConnexionBDD();
-		String requete = "INSERT INTO exercice (nom, musculeSolicite, detail) VALUES ('"+ exercice.getNom()+"' , '"+ exercice.getMuscleSolicite() +"','"+ exercice.getDetail() + "'); " ; 
+		String requete = "INSERT INTO exercice (nom, muscleSolicite, detail) VALUES ('"+ exercice.getNom()+"' , '"+ exercice.getMuscleSolicite() +"','"+ exercice.getDetail() + "'); " ; 
 		connexionBDD.connectionUpdate(requete);
 	}
 	
 	public void update(Exercice exercice, int id) {
 		ConnexionBDD connexionBDD = new ConnexionBDD(); 
-		String requete = "UPDATE exercice SET nom = '"+ exercice.getNom()+"', muscluSolicite = '"+exercice.getMuscleSolicite()+"', detail = '"+exercice.getDetail()+"' WHERE id = '"+id+"' ;";
+		String requete = "UPDATE exercice SET nom = '"+ exercice.getNom()+"', muscleSolicite = '"+exercice.getMuscleSolicite()+"', detail = '"+exercice.getDetail()+"' WHERE id = '"+id+"' ;";
 		connexionBDD.connectionUpdate(requete);	 
 	}
 	

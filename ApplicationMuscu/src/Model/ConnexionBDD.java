@@ -20,7 +20,7 @@ public class ConnexionBDD {
 	}
 	
 	public void connectionQueryExercice(String requete) {
-		String url = "jdbc:mysql://localhost:3306/locationvehicule";
+		String url = "jdbc:mysql://localhost:3306/bddappmusculation";
 		String user = "mysql";
 		String pass = "mysql";
 		
@@ -33,12 +33,10 @@ public class ConnexionBDD {
 			while (result.next()) {
 				// mettre chaque collone 
 				System.out.println("-------------------------------------------------------------------------");
-				System.out.println("IdClient : " + result.getInt("idClient"));
+				System.out.println("IdClient : " + result.getInt("id"));
 				System.out.println("Nom : " + result.getString("nom"));
-				System.out.println("Prenom : "+ result.getString("prenom"));
-				System.out.println("Email : "+ result.getString("email"));
-				System.out.println("Mdp : "+ result.getString("mdp"));
-				System.out.println("Permis : "+ result.getString("permis"));
+				System.out.println("Musclue solicité : "+ result.getString("muscleSolicite"));
+				System.out.println("Détails : "+ result.getString("detail"));
 			}
 			System.out.println("-------------------------------------------------------------------------");
 			

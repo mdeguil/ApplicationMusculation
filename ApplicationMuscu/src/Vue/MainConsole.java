@@ -12,6 +12,7 @@ public class MainConsole {
 			switch(choixMenuPrincipal) {
 			case 1 :
 				// Gestionnaire des Exercices
+				ExerciceDAO exerciceDAO = new ExerciceDAO();
 				int choixMenuExercice = menuExercice();
 				switch(choixMenuExercice) {
 				case 1 : 
@@ -28,6 +29,7 @@ public class MainConsole {
 					System.out.println("Entrer les detail de l'exercice : ");
 					detailExercice = scan.nextLine();					
 					Exercice exercice = new Exercice(nomExercice, muscleSolicite, detailExercice);
+					exerciceDAO.create(exercice);
 					break;
 				case 2 : 
 					// modifier un exercice
@@ -38,8 +40,9 @@ public class MainConsole {
 					System.out.println("Bienvenue dans la suppresion d'un exercice !");
 					break;
 				case 4 : 
-					// afficher exercice
+					// afficher les exercice
 					System.out.println("Affichage d'un exercice !");
+					exerciceDAO.getAll();
 					break;
 				case 5 : 
 					// revenir au Menu principal
@@ -118,16 +121,18 @@ public class MainConsole {
 				sortie = true;
 				break;
 			default :
-				System.out.println("Erreur !!");
+				System.out.println("Erreur!!");
 				break;
 			}
 		}
+		
+		System.out.println("Au revoir !!");
 
 	}
 	
 	/**
-	 * Fonction permettant d'afficher le menu principal de l'application et qui retourne le choix de l'utilisateur
-	 * @return
+	 * Affiche le Menu principal de l'applications
+	 * @return le choix de l'utilisateur 
 	 */
 	public static int menuPrincipal() {
 		int choix = 0;
