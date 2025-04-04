@@ -150,8 +150,8 @@ public class MainConsole {
 	}
 	
 	/**
-	 * Fonction permettant d'afficher le menu de gestion des exercice de l'application et qui retourne le choix de l'utilisateur
-	 * @return
+	 * Permettant d'afficher le menu de gestion des exercice de l'application
+	 * @return Le choix de l'utilisateur
 	 */
 	public static int menuExercice() {
 		int choix;
@@ -170,8 +170,8 @@ public class MainConsole {
 	}
 	
 	/**
-	 * Fonction permettant d'afficher le menu de gestion des séance de l'application et qui retourne le choix de l'utilisateur
-	 * @return
+	 * Permettant d'afficher le menu de gestion des séance de l'application
+	 * @return Le choix de l'utilisateur
 	 */
 	public static int menuSeance() {
 		int choix;
@@ -190,8 +190,8 @@ public class MainConsole {
 	}
 	
 	/**
-	 * Fonction permettant d'afficher le menu de gestion de programme de l'application et qui retourne le choix de l'utilisateur
-	 * @return
+	 * Permettant d'afficher le menu de gestion de programme de l'application 
+	 * @return Le choix de l'utilisateur
 	 */
 	public static int menuProgramme() {
 		int choix;
@@ -210,11 +210,11 @@ public class MainConsole {
 	}
 
 	/**
-	 * Fonction permetant de redemander un nombre en fonction des ces borne Max et Min puis retourne le nombre correcte
+	 * Permetant de redemander un nombre en fonction des ces borne Max et Min
 	 * @param nbr
 	 * @param borneMin
 	 * @param borneMax
-	 * @return
+	 * @return Le nombre entre les bornes Min et Max
 	 */
 	public static int verificationNombre(int nbr, int borneMin, int borneMax) {
 		Scanner scan = new Scanner(System.in);
