@@ -13,6 +13,7 @@ public class MainConsole {
 			case 1 :
 				// Gestionnaire des Exercices
 				ExerciceDAO exerciceDAO = new ExerciceDAO();
+				Scanner scan = new Scanner(System.in);
 				int choixMenuExercice = menuExercice();
 				switch(choixMenuExercice) {
 				case 1 : 
@@ -20,8 +21,7 @@ public class MainConsole {
 					System.out.println("Bienvenue dans la création d'un exercice !");
 					String nomExercice;
 					String muscleSolicite;
-					String detailExercice;
-					Scanner scan = new Scanner(System.in);
+					String detailExercice;	
 					System.out.println("Entrer le nom de l'exercice : ");
 					nomExercice = scan.nextLine();
 					System.out.println("Entrer le muscle solicite lors de cette l'exercice : ");
@@ -34,15 +34,34 @@ public class MainConsole {
 				case 2 : 
 					// modifier un exercice
 					System.out.println("Bienvenue dans la modification d'un exercice !");
+					System.out.println("Entrer l'id de l'exercice à modifier : ");
+					int idExercice = scan.nextInt();
+					scan.nextLine();
+					String nomExerciceModif;
+					String muscleSoliciteModif;
+					String detailExerciceModif;	
+					System.out.println("Entrer le nouveau nom de l'exercice : ");
+					nomExerciceModif = scan.nextLine();
+					System.out.println("Entrer le nouveau muscle solicite lors de cette l'exercice : ");
+					muscleSoliciteModif = scan.nextLine();
+					System.out.println("Entrer les nouveaux detail de l'exercice : ");
+					detailExerciceModif = scan.nextLine();					
+					Exercice exerciceModifier = new Exercice(nomExerciceModif, muscleSoliciteModif, detailExerciceModif);
+					exerciceDAO.update(exerciceModifier,idExercice);
 					break;
 				case 3 : 
 					// supprimer un exercice
 					System.out.println("Bienvenue dans la suppresion d'un exercice !");
+					int idSup = scan.nextInt();
+					scan.nextLine();
+					exerciceDAO.delete(idSup);
 					break;
 				case 4 : 
 					// afficher les exercice
 					System.out.println("Affichage d'un exercice !");
-					exerciceDAO.getAll();
+					int num = scan.nextInt();
+					scan.nextLine();
+					exerciceDAO.getOne(num);
 					break;
 				case 5 : 
 					// revenir au Menu principal
@@ -227,4 +246,5 @@ public class MainConsole {
 		
 		return nbr;
 	}
+
 }
