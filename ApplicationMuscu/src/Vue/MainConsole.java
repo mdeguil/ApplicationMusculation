@@ -218,7 +218,7 @@ public class MainConsole {
 	 */
 	public static int verificationNombre(int nbr, int borneMin, int borneMax) {
 		Scanner scan = new Scanner(System.in);
-		while (nbr < borneMin && nbr > borneMax) {
+		while (nbr < borneMin || nbr > borneMax) {
 			System.out.println("Erreur !! Nombre incorrect !");
 			System.out.println("Entrez un nouveau nombre : ");
 			nbr = scan.nextInt();
