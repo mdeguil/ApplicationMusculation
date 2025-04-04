@@ -20,12 +20,42 @@ public class MainConsole {
 					// Crée un exercice
 					System.out.println("Bienvenue dans la création d'un exercice !");
 					String nomExercice;
-					String muscleSolicite;
+					String muscleSolicite = "";
 					String detailExercice;	
 					System.out.println("Entrer le nom de l'exercice : ");
 					nomExercice = scan.nextLine();
 					System.out.println("Entrer le muscle solicite lors de cette l'exercice : ");
-					muscleSolicite = scan.nextLine();
+					int menuMuscle = choixMuscle();
+					switch (menuMuscle) {
+					case 1 : 
+						muscleSolicite = "Adbominaux";
+						break;
+					case 2 : 
+						muscleSolicite = "Biceps";
+						break;
+					case 3 : 
+						muscleSolicite = "Triceps";
+						break;
+					case 4 : 
+						muscleSolicite = "Jambes";
+						break;
+					case 5 : 
+						muscleSolicite = "Pectoraux";
+						break;
+					case 6 : 
+						muscleSolicite = "Deltoides";
+						break;
+					case 7 : 
+						muscleSolicite = "Dos";
+						break;
+					case 8 : 
+						muscleSolicite = "Autres";
+						break;
+					default : 
+						System.out.println("Erreur !!");
+						break;
+					}
+						
 					System.out.println("Entrer les detail de l'exercice : ");
 					detailExercice = scan.nextLine();					
 					Exercice exercice = new Exercice(nomExercice, muscleSolicite, detailExercice);
@@ -38,12 +68,41 @@ public class MainConsole {
 					int idExercice = scan.nextInt();
 					scan.nextLine();
 					String nomExerciceModif;
-					String muscleSoliciteModif;
+					String muscleSoliciteModif = "";
 					String detailExerciceModif;	
 					System.out.println("Entrer le nouveau nom de l'exercice : ");
 					nomExerciceModif = scan.nextLine();
 					System.out.println("Entrer le nouveau muscle solicite lors de cette l'exercice : ");
-					muscleSoliciteModif = scan.nextLine();
+					int menuMuscleModifier = choixMuscle();
+					switch (menuMuscleModifier) {
+					case 1 : 
+						muscleSoliciteModif = "Adbominaux";
+						break;
+					case 2 : 
+						muscleSoliciteModif = "Biceps";
+						break;
+					case 3 : 
+						muscleSoliciteModif = "Triceps";
+						break;
+					case 4 : 
+						muscleSoliciteModif = "Jambes";
+						break;
+					case 5 : 
+						muscleSoliciteModif = "Pectoraux";
+						break;
+					case 6 : 
+						muscleSoliciteModif = "Deltoides";
+						break;
+					case 7 : 
+						muscleSoliciteModif = "Dos";
+						break;
+					case 8 : 
+						muscleSoliciteModif = "Autres";
+						break;
+					default : 
+						System.out.println("Erreur !!");
+						break;
+					}
 					System.out.println("Entrer les nouveaux detail de l'exercice : ");
 					detailExerciceModif = scan.nextLine();					
 					Exercice exerciceModifier = new Exercice(nomExerciceModif, muscleSoliciteModif, detailExerciceModif);
@@ -52,16 +111,15 @@ public class MainConsole {
 				case 3 : 
 					// supprimer un exercice
 					System.out.println("Bienvenue dans la suppresion d'un exercice !");
+					System.out.println("Entrer l'id de l'exercice à supprimer : ");
 					int idSup = scan.nextInt();
 					scan.nextLine();
 					exerciceDAO.delete(idSup);
 					break;
 				case 4 : 
 					// afficher les exercice
-					System.out.println("Affichage d'un exercice !");
-					int num = scan.nextInt();
-					scan.nextLine();
-					exerciceDAO.getOne(num);
+					System.out.println("Affichage des exercices !");
+					exerciceDAO.getAll();
 					break;
 				case 5 : 
 					// revenir au Menu principal
@@ -247,4 +305,20 @@ public class MainConsole {
 		return nbr;
 	}
 
+	public static int choixMuscle() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Voici les Muscle disponnible : ");
+		System.out.println("   1 - Adbominaux");
+		System.out.println("   2 - Biceps");
+		System.out.println("   3 - Triceps");
+		System.out.println("   4 - Jambes");
+		System.out.println("   5 - Pectoraux");
+		System.out.println("   6 - Deltoides");
+		System.out.println("   7 - Dos");
+		System.out.println("   8 - Autres");
+		int choix = scanner.nextInt();
+		scanner.nextLine();
+		choix = verificationNombre(choix,1,8);
+		return choix;
+	}
 }
