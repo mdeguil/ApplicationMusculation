@@ -33,10 +33,35 @@ public class ConnexionBDD {
 			while (result.next()) {
 				// mettre chaque collone 
 				System.out.println("-------------------------------------------------------------------------");
-				System.out.println("IdClient : " + result.getInt("id"));
+				System.out.println("IdExercice : " + result.getInt("id"));
 				System.out.println("Nom : " + result.getString("nom"));
 				System.out.println("Musclue solicité : "+ result.getString("muscleSolicite"));
 				System.out.println("Détails : "+ result.getString("detail"));
+			}
+			System.out.println("-------------------------------------------------------------------------");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}    
+	}
+	
+	public void connectionQuerySeanceUnique(String requete) {
+		String url = "jdbc:mysql://localhost:3306/bddappmusculation";
+		String user = "mysql";
+		String pass = "mysql";
+		
+		try {
+			Connection connect = DriverManager.getConnection(url, user, pass);
+			Statement stmt = connect.createStatement();
+			ResultSet result = stmt.executeQuery(requete);
+			// Afficher les information
+			System.out.println("Voici le resultat de vortre requete : ");
+			while (result.next()) {
+				// mettre chaque collone 
+				System.out.println("-------------------------------------------------------------------------");
+				System.out.println("Exercice : " + result.getString("nomExercie"));
+				System.out.println("Nombre série : "+ result.getString("nbrSerie"));
+				System.out.println("Nombre de répétition : "+ result.getString("nbrRepetition"));
 			}
 			System.out.println("-------------------------------------------------------------------------");
 			
