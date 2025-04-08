@@ -29,7 +29,6 @@ public class ConnexionBDD {
 			Statement stmt = connect.createStatement();
 			ResultSet result = stmt.executeQuery(requete);
 			// Afficher les information
-			System.out.println("Voici le resultat de vortre requete : ");
 			while (result.next()) {
 				// mettre chaque collone 
 				System.out.println("-------------------------------------------------------------------------");
@@ -55,7 +54,6 @@ public class ConnexionBDD {
 			Statement stmt = connect.createStatement();
 			ResultSet result = stmt.executeQuery(requete);
 			// Afficher les information
-			System.out.println("Voici le resultat de vortre requete : ");
 			while (result.next()) {
 				// mettre chaque collone 
 				System.out.println("-------------------------------------------------------------------------");
@@ -80,7 +78,6 @@ public class ConnexionBDD {
 			Statement stmt = connect.createStatement();
 			ResultSet result = stmt.executeQuery(requete);
 			// Afficher les information
-			System.out.println("Voici le resultat de vortre requete : ");
 			while (result.next()) {
 				// mettre chaque collone 
 				System.out.println("-------------------------------------------------------------------------");
