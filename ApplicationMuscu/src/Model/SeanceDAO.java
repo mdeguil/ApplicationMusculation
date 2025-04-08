@@ -28,7 +28,7 @@ public class SeanceDAO {
 
 	public void getAll() {
 		ConnexionBDD connexionBDD = new ConnexionBDD();
-		String requete = "SELECT * FROM ... "; 
-		connexionBDD.connectionQueryExercice(requete);
+		String requete = "SELECT * FROM seance "; 
+		connexionBDD.connectionQueryToutSeance(requete);
 	}
 }

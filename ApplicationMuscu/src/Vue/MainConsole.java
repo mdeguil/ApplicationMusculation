@@ -133,7 +133,7 @@ public class MainConsole {
 				}
 				break;
 			case 2 : 
-				ExerciceDAO seanceDAO = new ExerciceDAO();
+				SeanceDAO seanceDAO = new SeanceDAO();
 				int choixMenuSeance = menuSeance();
 				switch(choixMenuSeance) {
 				case 1 : 
@@ -147,6 +147,7 @@ public class MainConsole {
 					
 					Seance seance = new Seance(nomSeance, detailSeance);
 					
+					seanceDAO.create(seance);
 					
 					break;
 				case 2 : 
@@ -161,7 +162,12 @@ public class MainConsole {
 					// afficher la seance
 					System.out.println("Voici l'affichage de la seance !");
 					break;
-				case 5 : 
+					
+				case 5 :
+					System.out.println("Voici l'affichage des seance !");
+					seanceDAO.getAll();
+					break;
+				case 6 : 
 					// revenir au Menu principal
 					System.out.println("retour Menu principal !");
 					choixMenuPrincipal = menuPrincipal();
@@ -268,11 +274,12 @@ public class MainConsole {
 		System.out.println("	2 - Ajoute exercice.");
 		System.out.println("	3 - Supprimer un exercice.");
 		System.out.println("	4 - Afficher la seance.");
-		System.out.println("	5 - Quittez.");
+		System.out.println("    5 - Afficher tout les seance");
+		System.out.println("	6 - Quittez.");
 		System.out.println("Entrez votre choix : ");
 		choix = scan.nextInt();
 		scan.nextLine();
-		choix = verificationNombre(choix,1,5);
+		choix = verificationNombre(choix,1,6);
 		return choix;
 	}
 	
