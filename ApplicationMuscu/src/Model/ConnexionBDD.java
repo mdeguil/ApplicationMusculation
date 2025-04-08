@@ -33,7 +33,7 @@ public class ConnexionBDD {
 			while (result.next()) {
 				// mettre chaque collone 
 				System.out.println("-------------------------------------------------------------------------");
-				System.out.println("IdExercice : " + result.getInt("id"));
+				System.out.println("IdExercice : " + result.getInt("idExercice"));
 				System.out.println("Nom : " + result.getString("nom"));
 				System.out.println("Musclue solicité : "+ result.getString("muscleSolicite"));
 				System.out.println("Détails : "+ result.getString("detail"));
