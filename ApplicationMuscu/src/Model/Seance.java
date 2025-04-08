@@ -3,22 +3,13 @@ package Model;
 import java.util.Arrays;
 
 public class Seance {
-	private int idSeance;
 	private String nom;
 	private Exercice[] seance;
 	private String detail;
 	
-	public Seance(String nom, Exercice[] seance) {
+	public Seance(String nom, String detail) {
 		this.nom = nom;
-		this.seance = seance;
-	}
-	
-	public int getIdSeance() {
-		return idSeance;
-	}
-
-	public void setIdSeance(int idSeance) {
-		this.idSeance = idSeance;
+		this.detail = detail;
 	}
 
 	public String getNom() {

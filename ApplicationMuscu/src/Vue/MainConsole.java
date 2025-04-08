@@ -6,6 +6,7 @@ import Model.*;
 public class MainConsole {
 
 	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
 		int choixMenuPrincipal = menuPrincipal();
 		boolean sortie = false;
 		while (sortie != true) {
@@ -13,7 +14,6 @@ public class MainConsole {
 			case 1 :
 				// Gestionnaire des Exercices
 				ExerciceDAO exerciceDAO = new ExerciceDAO();
-				Scanner scan = new Scanner(System.in);
 				int choixMenuExercice = menuExercice();
 				switch(choixMenuExercice) {
 				case 1 : 
@@ -133,11 +133,21 @@ public class MainConsole {
 				}
 				break;
 			case 2 : 
+				ExerciceDAO seanceDAO = new ExerciceDAO();
 				int choixMenuSeance = menuSeance();
 				switch(choixMenuSeance) {
 				case 1 : 
 					// Crée un seance
-					System.out.println("Bienvenue dans la crétion d'une seance !");
+					System.out.println("Bienvenue dans la crétion d'une seance !");	
+					
+					System.out.println("Entrez le nom de la séance : ");
+					String nomSeance = scan.nextLine();
+					System.out.println("Entrez les détails de la séance : ");
+					String detailSeance = scan.nextLine();
+					
+					Seance seance = new Seance(nomSeance, detailSeance);
+					
+					
 					break;
 				case 2 : 
 					// Ajouter un exercice
