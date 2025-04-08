@@ -158,16 +158,28 @@ public class MainConsole {
 					// supprimer un exercice
 					System.out.println("Bienvenue dans la supression d'un exercice !");
 					break;
-				case 4 : 
-					// afficher la seance
-					System.out.println("Voici l'affichage de la seance !");
+					
+				case 4 :
+					// supprimer une seance
+					System.out.println("Bienvenue dans la supression d'une seance !");
+					int idSuppressionSeance = scan.nextInt();
+					scan.nextLine();
+					seanceDAO.delete(idSuppressionSeance);
 					break;
 					
-				case 5 :
+				case 5 : 
+					// afficher la seance
+					System.out.println("Voici l'affichage de la seance !");
+					int idSeance = scan.nextInt();
+					scan.nextLine();
+					seanceDAO.getOne(idSeance);
+					break;
+					
+				case 6 :
 					System.out.println("Voici l'affichage des seance !");
 					seanceDAO.getAll();
 					break;
-				case 6 : 
+				case 7 : 
 					// revenir au Menu principal
 					System.out.println("retour Menu principal !");
 					choixMenuPrincipal = menuPrincipal();
@@ -273,13 +285,14 @@ public class MainConsole {
 		System.out.println("	1 - Crée un seance.");
 		System.out.println("	2 - Ajoute exercice.");
 		System.out.println("	3 - Supprimer un exercice.");
-		System.out.println("	4 - Afficher la seance.");
-		System.out.println("    5 - Afficher tout les seance");
-		System.out.println("	6 - Quittez.");
+		System.out.println("	4 - Supprimer une seance.");
+		System.out.println("	5 - Afficher la seance.");
+		System.out.println("	6 - Afficher tout les seance.");
+		System.out.println("	7 - Quittez.");
 		System.out.println("Entrez votre choix : ");
 		choix = scan.nextInt();
 		scan.nextLine();
-		choix = verificationNombre(choix,1,6);
+		choix = verificationNombre(choix,1,7);
 		return choix;
 	}
 	
