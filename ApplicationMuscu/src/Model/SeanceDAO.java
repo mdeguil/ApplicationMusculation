@@ -10,13 +10,13 @@ public class SeanceDAO {
 	
 	public void update(Seance seance, int id) {
 		ConnexionBDD connexionBDD = new ConnexionBDD(); 
-		String requete = "UPDATE seance SET nom = '"+ seance.getNom()+"', detail = '"+seance.getDetail()+"' WHERE id = '"+id+"' ;";
+		String requete = "UPDATE seance SET nom = '"+ seance.getNom()+"', detail = '"+seance.getDetail()+"' WHERE idSeance = '"+id+"' ;";
 		connexionBDD.connectionUpdate(requete);	 
 	}
 	
 	public void delete(int id) {
 		ConnexionBDD connexionBDD = new ConnexionBDD(); 
-		String requete = "DELETE FROM seance WHERE id = '" + id + "';";
+		String requete = "DELETE FROM seance WHERE idSeance = '" + id + "';";
 		connexionBDD.connectionUpdate(requete);	 
 	}
 	

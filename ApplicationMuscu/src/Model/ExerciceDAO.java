@@ -10,19 +10,19 @@ public class ExerciceDAO {
 	
 	public void update(Exercice exercice, int id) {
 		ConnexionBDD connexionBDD = new ConnexionBDD(); 
-		String requete = "UPDATE exercice SET nom = '"+ exercice.getNom()+"', muscleSolicite = '"+exercice.getMuscleSolicite()+"', detail = '"+exercice.getDetail()+"' WHERE id = '"+id+"' ;";
+		String requete = "UPDATE exercice SET nom = '"+ exercice.getNom()+"', muscleSolicite = '"+exercice.getMuscleSolicite()+"', detail = '"+exercice.getDetail()+"' WHERE idExercice = '"+id+"' ;";
 		connexionBDD.connectionUpdate(requete);	 
 	}
 	
 	public void delete(int id) {
 		ConnexionBDD connexionBDD = new ConnexionBDD(); 
-		String requete = "DELETE FROM exercice WHERE id = '" + id + "';";
+		String requete = "DELETE FROM exercice WHERE idExercice = '" + id + "';";
 		connexionBDD.connectionUpdate(requete);	 
 	}
 	
 	public void getOne(int id) {
 		ConnexionBDD connexionBDD = new ConnexionBDD();
-		String requete = "SELECT * FROM exercice WHERE id = '"+id+"';"; 
+		String requete = "SELECT * FROM exercice WHERE idExercice = '"+id+"';"; 
 		connexionBDD.connectionQueryExercice(requete);
 	}
 
