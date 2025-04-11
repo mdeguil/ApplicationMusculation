@@ -7,7 +7,7 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-CREATE DATABASE `bddappmusculation` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE `bddappmusculation`;
 USE `bddappmusculation`;
 
 DROP TABLE IF EXISTS `contenueprogramme`;
@@ -15,7 +15,7 @@ CREATE TABLE `contenueprogramme` (
   `idProgramme` int NOT NULL,
   `idSeance` int NOT NULL,
   PRIMARY KEY (`idProgramme`,`idSeance`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `contenueprogramme` (`idProgramme`, `idSeance`) VALUES
 (1,	1),
@@ -30,7 +30,7 @@ CREATE TABLE `contenueseance` (
   `nbrSerie` int NOT NULL,
   `nbrRepetition` int NOT NULL,
   PRIMARY KEY (`idSeance`,`idExercice`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `contenueseance` (`idSeance`, `idExercice`, `nbrSerie`, `nbrRepetition`) VALUES
 (1,	1,	3,	8),
@@ -46,10 +46,10 @@ DROP TABLE IF EXISTS `exercice`;
 CREATE TABLE `exercice` (
   `idExercice` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
-  `muscleSolicite` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `muscleSolicite` varchar(150) CHARACTER SET utf8mb4 NOT NULL,
   `detail` varchar(150) NOT NULL,
   PRIMARY KEY (`idExercice`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 ;
 
 INSERT INTO `exercice` (`idExercice`, `nom`, `muscleSolicite`, `detail`) VALUES
 (1,	'Squat	',	'Quadriceps, fessiers, ischio-jambiers',	'Descendre les hanches comme pour s\'asseoir'),
@@ -64,7 +64,7 @@ CREATE TABLE `programme` (
   `nom` varchar(50) NOT NULL,
   `detail` varchar(50) NOT NULL,
   PRIMARY KEY (`idProgramme`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `programme` (`idProgramme`, `nom`, `detail`) VALUES
 (1,	'Force générale',	'Programme axé sur l\'augmentation de la force'),
@@ -78,7 +78,7 @@ CREATE TABLE `seance` (
   `nom` varchar(50) NOT NULL,
   `detail` varchar(150) NOT NULL,
   PRIMARY KEY (`idSeance`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `seance` (`idSeance`, `nom`, `detail`) VALUES
 (1,	'Séance Force 1',	'Première séance du programme de force'),
