@@ -262,7 +262,7 @@ public class MainConsole {
 					programmeDAO.getOne(idProgramme);
 					break;
 				case 5 :
-					// afficher des seance
+					// afficher des programme
 					System.out.println("Voici l'affichage des seance !");
 					programmeDAO.getAll();
 					break;
