@@ -1,5 +1,6 @@
 package Vue;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import Model.*;
 
@@ -134,6 +135,7 @@ public class MainConsole {
 				break;
 			case 2 : 
 				SeanceDAO seanceDAO = new SeanceDAO();
+				ContenueSeanceDAO contenueSeanceDAO = new  ContenueSeanceDAO();
 				int choixMenuSeance = menuSeance();
 				switch(choixMenuSeance) {
 				case 1 : 
@@ -153,10 +155,27 @@ public class MainConsole {
 				case 2 : 
 					// Ajouter un exercice
 					System.out.println("Bienvenue dans l'ajout d'un exercice !");
+					System.out.println("Entrer l'id de la Séance : ");
+					int idSeanceAjout = scan.nextInt();
+					scan.nextLine();
+					System.out.println("Entrer l'id de l'exercice : ");
+					int idExerciceAjout = scan.nextInt();
+					scan.nextLine();
+					
+					contenueSeanceDAO.create(idSeanceAjout, idExerciceAjout);
+					
 					break;
 				case 3 : 
 					// supprimer un exercice
 					System.out.println("Bienvenue dans la supression d'un exercice !");
+					System.out.println("Entrer l'id de la Séance : ");
+					int idSeanceSupprimer = scan.nextInt();
+					scan.nextLine();
+					System.out.println("Entrer l'id de l'exercice : ");
+					int idExerciceSuprimmer = scan.nextInt();
+					scan.nextLine();
+					
+					contenueSeanceDAO.create(idSeanceSupprimer, idExerciceSuprimmer);
 					break;
 					
 				case 4 :
@@ -176,6 +195,7 @@ public class MainConsole {
 					break;
 					
 				case 6 :
+					// afficher des seance
 					System.out.println("Voici l'affichage des seance !");
 					seanceDAO.getAll();
 					break;
