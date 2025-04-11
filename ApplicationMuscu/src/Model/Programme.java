@@ -5,12 +5,11 @@ import java.util.Arrays;
 public class Programme {
 	private int idProgramme;
 	private String nom;
-	private Seance[] programme;
 	private String detail;
 	
-	public Programme(String nom, Seance[] programme) {
+	public Programme(String nom, String detail) {
 		this.nom = nom;
-		this.programme = programme;
+		this.detail = detail;
 
 	}
 
@@ -30,14 +29,6 @@ public class Programme {
 		this.nom = nom;
 	}
 
-	public Seance[] getProgramme() {
-		return programme;
-	}
-
-	public void setProgramme(Seance[] programme) {
-		this.programme = programme;
-	}
-
 	public String getDetail() {
 		return detail;
 	}
@@ -48,8 +39,7 @@ public class Programme {
 
 	@Override
 	public String toString() {
-		return "Programme [idProgramme=" + idProgramme + ", nom=" + nom + ", programme=" + Arrays.toString(programme)
-				+ ", detail=" + detail + "]";
+		return "Programme [idProgramme=" + idProgramme + ", nom=" + nom + ", detail=" + detail + "]";
 	}
 	
 	

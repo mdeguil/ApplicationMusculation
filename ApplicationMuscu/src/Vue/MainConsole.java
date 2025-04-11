@@ -189,6 +189,7 @@ public class MainConsole {
 				case 5 : 
 					// afficher la seance
 					System.out.println("Voici l'affichage de la seance !");
+					System.out.println("Entrer l'id de la seance : ");
 					int idSeance = scan.nextInt();
 					scan.nextLine();
 					seanceDAO.getOne(idSeance);
@@ -212,25 +213,60 @@ public class MainConsole {
 				break;
 			case 3 : 
 				// Gestionnaire de programme
+				ProgrammeDAO programmeDAO = new ProgrammeDAO();
+				ContenueProgrammeDAO contenueProgrammeDAO = new ContenueProgrammeDAO();
 				int choixMenuProgramme = menuProgramme();
 				switch(choixMenuProgramme) {
 				case 1 : 
 					// Crée un programme
 					System.out.println("Bienvenue dans la crétion d'un programme !");
+					System.out.println("Entree le nom de la séance : ");
+					String nomProgramme = scan.nextLine();
+					System.out.println("Entree le detail de la séance : ");
+					String detailProgramme = scan.nextLine();
+					
+					Programme porgramme = new Programme(nomProgramme,detailProgramme);
+					programmeDAO.create(porgramme);
 					break;
 				case 2 : 
 					// Ajouter un seance
 					System.out.println("Bienvenue dans l'ajout d'une seance !");
+					System.out.println("Entrer l'id du Programme : ");
+					int idProgrammeAjout = scan.nextInt();
+					scan.nextLine();
+					System.out.println("Entrer l'id de la Séance : ");
+					int idSeanceAjout = scan.nextInt();
+					scan.nextLine();
+					
+					contenueProgrammeDAO.create(idProgrammeAjout, idSeanceAjout);
+					
 					break;
 				case 3 : 
 					// supprimer un seance
 					System.out.println("Bienvenue dans la supression d'une seance !");
+					System.out.println("Entrer l'id du Programme : ");
+					int idProgrammeSuprimmer = scan.nextInt();
+					scan.nextLine();
+					System.out.println("Entrer l'id de la Séance : ");
+					int idSeanceSupprimer = scan.nextInt();
+					scan.nextLine();
+					
+					contenueProgrammeDAO.delete(idProgrammeSuprimmer, idSeanceSupprimer);
 					break;
 				case 4 : 
 					// afficher le programme
 					System.out.println("Voici l'affichage du programme !");
+					System.out.println("Entrer l'id de programme : ");
+					int idProgramme = scan.nextInt();
+					scan.nextLine();
+					programmeDAO.getOne(idProgramme);
 					break;
-				case 5 : 
+				case 5 :
+					// afficher des seance
+					System.out.println("Voici l'affichage des seance !");
+					programmeDAO.getAll();
+					break;
+				case 6 : 
 					// revenir au Menu principal
 					System.out.println("retour Menu principal !");
 					choixMenuPrincipal = menuPrincipal();
@@ -328,11 +364,12 @@ public class MainConsole {
 		System.out.println("	2 - Ajouter une seance.");
 		System.out.println("	3 - Supprimer une seance.");
 		System.out.println("	4 - Afficher le programe.");
-		System.out.println("	5 - Quittez.");
+		System.out.println("	5 - Afficher les programes.");
+		System.out.println("	6 - Quittez.");
 		System.out.println("Entrez votre choix : ");
 		choix = scan.nextInt();
 		scan.nextLine();
-		choix = verificationNombre(choix,1,5);
+		choix = verificationNombre(choix,1,6);
 		return choix;
 	}
 
