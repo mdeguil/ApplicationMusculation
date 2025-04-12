@@ -57,7 +57,7 @@ public class ConnexionBDD {
 			while (result.next()) {
 				// mettre chaque collone 
 				System.out.println("-------------------------------------------------------------------------");
-				System.out.println("Exercice : " + result.getString("nomExercie"));
+				System.out.println("Exercice : " + result.getString("nom"));
 				System.out.println("Nombre série : "+ result.getString("nbrSerie"));
 				System.out.println("Nombre de répétition : "+ result.getString("nbrRepetition"));
 			}

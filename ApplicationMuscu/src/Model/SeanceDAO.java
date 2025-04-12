@@ -23,7 +23,7 @@ public class SeanceDAO {
 	public void getOne(int id) {
 		ConnexionBDD connexionBDD = new ConnexionBDD();
 		String requete = "SELECT * FROM contenueseance JOIN seance ON seance.idSeance = contenueseance.idSeance JOIN exercice ON contenueseance.idExercice = exercice.idExercice WHERE contenueseance.idSeance = '"+id+"';"; 
-		connexionBDD.connectionQueryExercice(requete);
+		connexionBDD.connectionQuerySeanceUnique(requete);
 	}
 
 	public void getAll() {
