@@ -14,9 +14,4 @@ public class ContenueSeanceDAO {
 		connexionBDD.connectionUpdate(requete);	 
 	}
 
-	public void getAll() {
-		ConnexionBDD connexionBDD = new ConnexionBDD();
-		String requete = "SELECT * FROM contenueseance "; 
-		connexionBDD.connectionQueryToutSeance(requete);
-	}
 }

@@ -92,4 +92,52 @@ public class ConnexionBDD {
 		}    
 	}
 	
+	public void connectionQueryProgrammeUnique(String requete) {
+		String url = "jdbc:mysql://localhost:3306/bddappmusculation";
+		String user = "mysql";
+		String pass = "mysql";
+		
+		try {
+			Connection connect = DriverManager.getConnection(url, user, pass);
+			Statement stmt = connect.createStatement();
+			ResultSet result = stmt.executeQuery(requete);
+			// Afficher les information
+			while (result.next()) {
+				// mettre chaque collone 
+				System.out.println("-------------------------------------------------------------------------");
+				System.out.println("NomProgramme : " + result.getString("nom"));;
+				System.out.println("NomSeance : "+ result.getString("seance.nom"));
+				System.out.println("Details : "+ result.getString("detail"));
+			}
+			System.out.println("-------------------------------------------------------------------------");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}    
+	}
+	
+	public void connectionQueryToutProgramme(String requete) {
+		String url = "jdbc:mysql://localhost:3306/bddappmusculation";
+		String user = "mysql";
+		String pass = "mysql";
+		
+		try {
+			Connection connect = DriverManager.getConnection(url, user, pass);
+			Statement stmt = connect.createStatement();
+			ResultSet result = stmt.executeQuery(requete);
+			// Afficher les information
+			while (result.next()) {
+				// mettre chaque collone 
+				System.out.println("-------------------------------------------------------------------------");
+				System.out.println("IdProgramme : " + result.getInt("idProgramme"));
+				System.out.println("Nom : " + result.getString("nom"));;
+				System.out.println("Détails : "+ result.getString("detail"));
+			}
+			System.out.println("-------------------------------------------------------------------------");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}    
+	}
+	
 }

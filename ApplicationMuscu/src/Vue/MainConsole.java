@@ -363,8 +363,8 @@ public class MainConsole {
 		System.out.println("    1 - Créer un programme.");
 		System.out.println("	2 - Ajouter une seance.");
 		System.out.println("	3 - Supprimer une seance.");
-		System.out.println("	4 - Afficher le programe.");
-		System.out.println("	5 - Afficher les programes.");
+		System.out.println("	4 - Afficher le programme.");
+		System.out.println("	5 - Afficher les programmes.");
 		System.out.println("	6 - Quittez.");
 		System.out.println("Entrez votre choix : ");
 		choix = scan.nextInt();

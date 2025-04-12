@@ -22,13 +22,13 @@ public class ProgrammeDAO {
 	
 	public void getOne(int id) {
 		ConnexionBDD connexionBDD = new ConnexionBDD();
-		String requete = "SELECT * FROM programme WHERE idProgramme = '"+id+"';"; 
-		connexionBDD.connectionQueryExercice(requete);
+		String requete = "SELECT * FROM contenueprogramme JOIN programme ON programme.idProgramme = contenueprogramme.idProgramme JOIN seance ON contenueprogramme.idSeance = seance.idSeance WHERE contenueprogramme.idProgramme = '"+id+"';"; 
+		connexionBDD.connectionQueryProgrammeUnique(requete);
 	}
 
 	public void getAll() {
 		ConnexionBDD connexionBDD = new ConnexionBDD();
 		String requete = "SELECT * FROM programme"; 
-		connexionBDD.connectionQueryExercice(requete); 
+		connexionBDD.connectionQueryToutProgramme(requete); 
 	}
 }
