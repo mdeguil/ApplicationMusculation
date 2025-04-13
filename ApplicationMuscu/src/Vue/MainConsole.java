@@ -261,9 +261,9 @@ public class MainConsole {
 				case 1 : 
 					// Crée un programme
 					System.out.println("Bienvenue dans la crétion d'un programme !");
-					System.out.println("Entree le nom de la séance : ");
+					System.out.println("Entree le nom du programme : ");
 					String nomProgramme = scan.nextLine();
-					System.out.println("Entree le detail de la séance : ");
+					System.out.println("Entree le detail du programme : ");
 					String detailProgramme = scan.nextLine();
 					
 					Programme porgramme = new Programme(nomProgramme,detailProgramme);
