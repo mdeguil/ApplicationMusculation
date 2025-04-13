@@ -3,10 +3,16 @@ package Model;
 public class ContenueSeance {
 	private int idSeance;
 	private int idExercice;
+	private int nbrSerie;
+	private int nbrRepetition;
 	
-	public ContenueSeance(int idSeance, int idExercice) {
+	
+
+	public ContenueSeance(int idSeance, int idExercice, int nbrSerie, int nbrRepetition) {
 		this.idSeance = idSeance;
 		this.idExercice = idExercice;
+		this.nbrSerie = nbrSerie;
+		this.nbrRepetition = nbrRepetition;
 	}
 
 
@@ -30,10 +36,23 @@ public class ContenueSeance {
 	}
 
 
-	@Override
-	public String toString() {
-		return "ContenueSeance [idSeance=" + idSeance + ", idExercice=" + idExercice + "]";
+	public int getNbrSerie() {
+		return nbrSerie;
 	}
-	
+
+
+	public void setNbrSerie(int nbrSerie) {
+		this.nbrSerie = nbrSerie;
+	}
+
+
+	public int getNbrRepetition() {
+		return nbrRepetition;
+	}
+
+
+	public void setNbrRepetition(int nbrRepetition) {
+		this.nbrRepetition = nbrRepetition;
+	}	
 	
 }

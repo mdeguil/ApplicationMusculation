@@ -161,8 +161,15 @@ public class MainConsole {
 					System.out.println("Entrer l'id de l'exercice : ");
 					int idExerciceAjout = scan.nextInt();
 					scan.nextLine();
+					System.out.println("Entrer le nombre de serie : ");
+					int nbrSerie = scan.nextInt();
+					scan.nextLine();
+					System.out.println("Entrer le nombre de repetition : ");
+					int nbrRepetition = scan.nextInt();
+					scan.nextLine();
+					ContenueSeance contenueSeance = new ContenueSeance(idSeanceAjout, idExerciceAjout,nbrSerie ,nbrRepetition);
 					
-					contenueSeanceDAO.create(idSeanceAjout, idExerciceAjout);
+					contenueSeanceDAO.create(contenueSeance);
 					
 					break;
 				case 3 : 
@@ -175,10 +182,44 @@ public class MainConsole {
 					int idExerciceSuprimmer = scan.nextInt();
 					scan.nextLine();
 					
-					contenueSeanceDAO.create(idSeanceSupprimer, idExerciceSuprimmer);
+					contenueSeanceDAO.delete(idSeanceSupprimer, idExerciceSuprimmer);
+					break;
+				case 4 :
+					// modifier d'un exercie d'une seance
+					System.out.println("Bienvenue dans la modififcation d'un exercie d'une seance !");
+					System.out.println("Entrer l'id de la Séance à modifier : ");
+					int idSeanceAjoutModifier = scan.nextInt();
+					scan.nextLine();
+					System.out.println("Entrer l'id de l'exercice à modifier : ");
+					int idExerciceAjoutModifier = scan.nextInt();
+					scan.nextLine();
+					System.out.println("Entrer le nouveau nombre de serie : ");
+					int nbrSerieModifier = scan.nextInt();
+					scan.nextLine();
+					System.out.println("Entrer le nombre de repetition : ");
+					int nbrRepetitionModifier = scan.nextInt();
+					scan.nextLine();
+					ContenueSeance contenueSeanceModifier = new ContenueSeance(idSeanceAjoutModifier, idExerciceAjoutModifier,nbrSerieModifier ,nbrRepetitionModifier);
+					contenueSeanceDAO.update(contenueSeanceModifier);
+					
 					break;
 					
-				case 4 :
+				case 5 :
+					// modification une seance
+					System.out.println("Bienvenue dans la supression d'une seance !");
+					System.out.println("Entrez l'id de la seance à modifier :");
+					int idModificationSeance = scan.nextInt();
+					scan.nextLine();
+					System.out.println("Entrez le nouveau nom de la seance : ");
+					String nomSeanceModifier = scan.nextLine();
+					System.out.println("Entrez les nouveau details de la seance : ");
+					String detailSeanceModifier = scan.nextLine();
+					Seance seancModifier = new Seance(nomSeanceModifier, detailSeanceModifier);
+					seanceDAO.update(seancModifier, idModificationSeance);
+					
+					break;
+					
+				case 6 :
 					// supprimer une seance
 					System.out.println("Bienvenue dans la supression d'une seance !");
 					int idSuppressionSeance = scan.nextInt();
@@ -186,7 +227,7 @@ public class MainConsole {
 					seanceDAO.delete(idSuppressionSeance);
 					break;
 					
-				case 5 : 
+				case 7 : 
 					// afficher la seance
 					System.out.println("Voici l'affichage de la seance !");
 					System.out.println("Entrer l'id de la seance : ");
@@ -195,12 +236,12 @@ public class MainConsole {
 					seanceDAO.getOne(idSeance);
 					break;
 					
-				case 6 :
+				case 8 :
 					// afficher des seance
 					System.out.println("Voici l'affichage des seance !");
 					seanceDAO.getAll();
 					break;
-				case 7 : 
+				case 9 : 
 					// revenir au Menu principal
 					System.out.println("retour Menu principal !");
 					choixMenuPrincipal = menuPrincipal();
@@ -341,14 +382,16 @@ public class MainConsole {
 		System.out.println("	1 - Crée un seance.");
 		System.out.println("	2 - Ajoute exercice.");
 		System.out.println("	3 - Supprimer un exercice.");
-		System.out.println("	4 - Supprimer une seance.");
-		System.out.println("	5 - Afficher la seance.");
-		System.out.println("	6 - Afficher tout les seance.");
-		System.out.println("	7 - Quittez.");
+		System.out.println("	4 - Modifier l'exercice d'une seance.");
+		System.out.println("	5 - Modifier une seance.");
+		System.out.println("	6 - Supprimer une seance.");
+		System.out.println("	7 - Afficher la seance.");
+		System.out.println("	8 - Afficher tout les seance.");
+		System.out.println("	9 - Quittez.");
 		System.out.println("Entrez votre choix : ");
 		choix = scan.nextInt();
 		scan.nextLine();
-		choix = verificationNombre(choix,1,7);
+		choix = verificationNombre(choix,1,9);
 		return choix;
 	}
 	
