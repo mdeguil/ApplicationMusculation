@@ -295,6 +295,29 @@ public class MainConsole {
 					contenueProgrammeDAO.delete(idProgrammeSuprimmer, idSeanceSupprimer);
 					break;
 				case 4 : 
+					// Modifier le programme
+					System.out.println("Voici l'affichage du programme !");
+					System.out.println("Entrer l'id de programme : ");
+					int idProgrammeModifier = scan.nextInt();
+					scan.nextLine();
+					System.out.println("Entrer le nouveau nom du programme : ");
+					String nomProgrammeModifier = scan.nextLine();
+					System.out.println("Entrer les nouveau details du programme : ");
+					String detailProgrammeModifier = scan.nextLine();
+					Programme programmeModifier = new Programme(nomProgrammeModifier, detailProgrammeModifier);
+					
+					
+					programmeDAO.update(programmeModifier, idProgrammeModifier);
+					break;
+				case 5 : 
+					// Supprimer le programme
+					System.out.println("Voici l'affichage du programme !");
+					System.out.println("Entrer l'id de programme à suprimer : ");
+					int idProgrammeSupprimer = scan.nextInt();
+					scan.nextLine();
+					programmeDAO.delete(idProgrammeSupprimer);
+					break;
+				case 6 : 
 					// afficher le programme
 					System.out.println("Voici l'affichage du programme !");
 					System.out.println("Entrer l'id de programme : ");
@@ -302,12 +325,12 @@ public class MainConsole {
 					scan.nextLine();
 					programmeDAO.getOne(idProgramme);
 					break;
-				case 5 :
+				case 7 :
 					// afficher des programme
 					System.out.println("Voici l'affichage des seance !");
 					programmeDAO.getAll();
 					break;
-				case 6 : 
+				case 8 : 
 					// revenir au Menu principal
 					System.out.println("retour Menu principal !");
 					choixMenuPrincipal = menuPrincipal();
@@ -403,16 +426,18 @@ public class MainConsole {
 		int choix;
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Bienvenu dans le gestionnaire des seances : ");
-		System.out.println("    1 - Créer un programme.");
+		System.out.println("	1 - Créer un programme.");
 		System.out.println("	2 - Ajouter une seance.");
 		System.out.println("	3 - Supprimer une seance.");
-		System.out.println("	4 - Afficher le programme.");
-		System.out.println("	5 - Afficher les programmes.");
-		System.out.println("	6 - Quittez.");
+		System.out.println("	4 - Modification d'un programme.");
+		System.out.println("	5 - Supprimer un programme.");
+		System.out.println("	6 - Afficher le programme.");
+		System.out.println("	7 - Afficher les programmes.");
+		System.out.println("	8 - Quittez.");
 		System.out.println("Entrez votre choix : ");
 		choix = scan.nextInt();
 		scan.nextLine();
-		choix = verificationNombre(choix,1,6);
+		choix = verificationNombre(choix,1,8);
 		return choix;
 	}
 
