@@ -3,6 +3,7 @@ package fr.application.muscu.View;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.BorderPane;
@@ -11,6 +12,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import javafx.scene.control.Label;
+
+import javax.swing.*;
 import java.io.IOException;
 
 public class MainJavaFX extends Application {
@@ -34,12 +37,14 @@ public class MainJavaFX extends Application {
 
         VBox corp = new VBox();
         corp.setAlignment(Pos.CENTER);
+        corp.setSpacing(20);
         Label choixProgramme = new Label("Choisir un programme :");
         ComboBox comboBoxProgramme = new ComboBox();
         Label choixSeance = new Label("Choisir une séance :");
         ComboBox comboBoxSeance = new ComboBox();
+        Button btValider = new Button("Lancer la Séance !");
 
-        corp.getChildren().addAll(choixProgramme, comboBoxProgramme, choixSeance, comboBoxSeance);
+        corp.getChildren().addAll(choixProgramme, comboBoxProgramme, choixSeance, comboBoxSeance, btValider);
 
         borderPane.setCenter(corp);
         // Configurer la Fenêtre
